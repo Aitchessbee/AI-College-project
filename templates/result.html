@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Credit Card Fraud Detection</title>
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+	<div class="container">
+		<h1>Credit Card Fraud Detection</h1>
+		{% if not tables.empty %}
+			<h2>Fraudulent Transactions</h2>
+			<table>
+				<tbody>
+                    {% for table in tables %}
+                        {{ table|safe }}
+                    {% endfor %}
+				</tbody>
+			</table>
+		{% else %}
+			<p>No fraudulent transactions found.</p>
+		{% endif %}
+	</div>
+</body>
+</html>
